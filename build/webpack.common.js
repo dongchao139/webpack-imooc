@@ -57,7 +57,14 @@ module.exports = {
             }
           },
           "sass-loader",
-          "postcss-loader"
+          {
+            loader:"postcss-loader",
+            plugins: (loader) => [
+              require('postcss-import')({root: loader.resourcePath}),
+              require('postcss-cssnext'),
+              require('autoprefixer')({browsers: '>5%'})
+            ]
+          }
         ]
       }, {
         test: /\.(eot|ttf|svg)$/,
