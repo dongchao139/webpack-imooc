@@ -62,7 +62,8 @@ module.exports = {
             plugins: (loader) => [
               require('postcss-import')({root: loader.resourcePath}),
               require('postcss-cssnext'),
-              require('autoprefixer')({browsers: '>5%'})
+              require('autoprefixer')({browsers: '>5%'}),
+              require('cssnano')
             ]
           }
         ]
